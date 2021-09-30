@@ -1,0 +1,13 @@
+WITH better_roi AS (SELECT DISTINCT play_store_apps.name AS play_store, 
+	play_store_apps.rating AS play_store_rating, 
+	app_store_apps.name AS app_store, 
+	app_store_apps.rating AS app_store_rating
+FROM play_store_apps
+LEFT JOIN app_store_apps ON play_store_apps.name = app_store_apps.name
+WHERE play_store_apps.name IS NOT NULL AND app_store_apps.name IS NOT NULL
+ORDER BY play_store_rating DESC, app_store_rating DESC)
+
+SELECT name, 
+	price, 
+	rating, 
+	genre
