@@ -29,4 +29,3 @@ SELECT name,
 		- (12000*life_expectancy_years)::money AS expected_profit
 FROM top_potential_apps
 ORDER BY expected_revenue DESC
-limit 15
